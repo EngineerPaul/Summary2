@@ -1,0 +1,494 @@
+/* Палитра: светло-бежевый фон, мягкие тёплые тона */
+:root {
+    --bg-page: #f5f0e8;
+    --bg-card: #faf8f5;
+    --text: #3d3832;
+    --text-muted: #6b635b;
+    --accent: #8b7355;
+    --border: #ddd6cc;
+    --border-strong: #c4b8a8;
+    --shadow: rgba(61, 56, 50, 0.08);
+    --link: #0d6efd;
+    --span: #777572;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 50px;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg-page);
+
+    a {
+        color: var(--link);
+    }
+}
+
+/* Вложенность повторяет HTML: сначала .page, внутри — .intro (и его дети), .block, hr, .block-projects, .pdf-section */
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 0.8rem;
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+
+        .intro-photo-wrap {
+            flex-shrink: 0;
+        }
+
+        .intro-photo {
+            display: block;
+            width: 180px;
+            height: auto !important;
+            /* height: 180px; */
+            width: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .intro-photo:hover {
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .intro-info {
+            width: 100%;
+
+        }
+    }
+
+    .block {
+        margin: 0 0 0.5rem;
+
+        .block-heading {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .line {
+            margin: 0.2rem 0;
+            color: var(--text);
+        }
+
+        ul.soft-skills {
+            margin-top: 0;
+
+            span {
+                color: var(--span);
+            }
+        }
+    }
+
+    .block-name .name-title {
+        margin: 0 0 0.35rem;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--text);
+    }
+
+    .block-name .age-badge {
+        font-weight: 500;
+        color: var(--text-muted);
+        font-size: 1rem;
+    }
+
+    .block-contacts .line {
+        margin: 0.25rem 0;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid var(--border-strong);
+        margin: 1.5rem 0;
+    }
+
+    .block-projects {
+        margin-bottom: 0;
+
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+
+        .project-item[open] {
+            border-color: var(--border-strong);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .project-summary {
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            transition: background 0.2s;
+
+            span {
+                color: var(--span);
+                margin-right: auto;
+            }
+        }
+
+        .project-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .project-summary::after {
+            content: "▼";
+            font-size: 0.75rem;
+            color: var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .project-item[open] .project-summary::after {
+            transform: rotate(180deg);
+        }
+
+        .project-summary:hover {
+            background: #f0ebe3;
+        }
+
+        .project-content {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            background: #fdfcfa;
+        }
+
+        .project-content .project-subheading {
+            margin: 0.75rem 0 0.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .project-content .project-subheading:first-child {
+            margin-top: 0;
+        }
+
+        .project-content .carousel {
+            position: relative;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .project-content .carousel .carousel-inner {
+            position: relative;
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-content .carousel .carousel-inner .carousel-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            display: none;
+            cursor: pointer;
+        }
+
+        .project-content .carousel .carousel-inner .carousel-img.active {
+            display: block;
+        }
+
+        .project-content .carousel .carousel-prev,
+        .project-content .carousel .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: var(--bg-card);
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.9;
+            box-shadow: 0 2px 6px var(--shadow);
+            transition: opacity 0.2s;
+        }
+
+        .project-content .carousel .carousel-prev:hover,
+        .project-content .carousel .carousel-next:hover {
+            opacity: 1;
+        }
+
+        .project-content .carousel .carousel-prev {
+            left: 8px;
+        }
+
+        .project-content .carousel .carousel-next {
+            right: 8px;
+        }
+
+        .project-content .carousel .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .project-content .carousel .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-card);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .project-content .carousel .carousel-dot.active {
+            background: var(--accent);
+        }
+
+        .project-content .project-stack {
+            margin: 0 0 0.5rem;
+            color: var(--text);
+        }
+
+        .project-content .project-desc {
+            margin: 0;
+            color: var(--text);
+        }
+    }
+
+    .pdf-section {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    .pdf-section .btn-pdf {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+    .pdf-section .btn-pdf:hover {
+        background: #7a6649;
+    }
+
+    .pdf-section .btn-pdf:active {
+        transform: scale(0.98);
+    }
+}
+
+
+@media (max-width: 575px) {
+    hr {
+        margin: 12px 0px !important;
+    }
+}
+
+
+/* Планшет: intro в ряд, фото фикс, справа две колонки (ФИО | Контакты) */
+@media (min-width: 576px) {
+    hr {
+        margin: 24px 0px;
+    }
+    .page {
+        padding: 1.5rem 2rem 1.3rem;
+    }
+
+    .page .intro {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .page .intro .intro-info {
+        flex: 1;
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        gap: 1rem;
+    }
+
+    .page .block-name .name-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Десктоп */
+@media (min-width: 992px) {
+    .page {
+        padding: 2rem 2.5rem 1.3rem;
+    }
+
+    .page .block-projects .project-content .carousel .carousel-inner .carousel-img {
+        max-height: 380px;
+    }
+}
+
+/* Модалка (вне .page) */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(61, 56, 50, 0.75);
+    cursor: pointer;
+}
+
+.modal .modal-content {
+    position: relative;
+    z-index: 1;
+    max-width: 95vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modal .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: background 0.2s;
+}
+
+.modal .modal-close:hover {
+    background: #e8e2d8;
+}
+
+/* Футер: прикреплён к низу экрана, 50px, иконки-ссылки */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgb(33, 37, 41);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 100%;
+    padding: 0 0.75rem;
+}
+
+.site-footer .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #dee2e6;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.25rem 0;
+    transition: opacity 0.2s;
+}
+
+.site-footer .footer-link:hover {
+    opacity: 0.85;
+}
+
+.site-footer .footer-icon {
+    width: 26px;
+    height: 26px;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) invert(0.9);
+}
+
+.site-footer .footer-icon--text {
+    object-fit: fill;
+    width: 34px;
+    height: 26px;
+}
+
+/* На телефоне: скрыть подпись у почты, оставить только у телефона; скрыть txt, pdf, git */
+.site-footer .footer-label-mail {
+    display: none;
+}
+
+.site-footer .footer-link--desktop {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .site-footer .footer-label-mail {
+        display: inline;
+    }
+
+    .site-footer .footer-link--desktop {
+        display: inline-flex;
+    }
+}

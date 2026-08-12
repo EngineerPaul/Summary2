@@ -22,3 +22,11 @@ services:
           --bind 0.0.0.0:8000
           --workers 1
           --timeout 60
+    networks:
+      - extra_net
+      - default
+
+networks:
+  extra_net:
+    external: true
+    name: extra_services

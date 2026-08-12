@@ -4,8 +4,8 @@ services:
     container_name: summary
     restart: unless-stopped
     working_dir: /app/summary
-    ports:
-      - "${PORT:-8000}:8000"
+    # ports:
+    #   - "${PORT:-8000}:8000"
     environment:
       DEBUG: ${DEBUG:-false}
       SECRET_KEY: ${SECRET_KEY:-django-insecure-change-me}

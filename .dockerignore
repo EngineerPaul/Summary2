@@ -1,0 +1,13 @@
+venv/
+.git/
+.gitignore
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+staticfiles/
+db.sqlite3
+.env
+*.md
+материалы/
+пет сайты.txt
+python

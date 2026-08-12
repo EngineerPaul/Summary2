@@ -1,0 +1,24 @@
+services:
+  summary:
+    build: .
+    container_name: summary
+    restart: unless-stopped
+    working_dir: /app/summary
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      DEBUG: ${DEBUG:-false}
+      SECRET_KEY: ${SECRET_KEY:-django-insecure-change-me}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-["*"]}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-["http://localhost:8000"]}
+      # Публичный префикс URL. На сервере: /extra/summary/
+      BASE_PATH: ${BASE_PATH:-/}
+    command:
+      - sh
+      - -c
+      - >-
+          python manage.py collectstatic --noinput &&
+          gunicorn summary.wsgi:application
+          --bind 0.0.0.0:8000
+          --workers 1
+          --timeout 60

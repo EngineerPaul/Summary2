@@ -15,11 +15,10 @@ from dotenv import load_dotenv
 import os
 import json
 
-# Загружаем .env
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR.parent / '.env')
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,6 +31,13 @@ DEBUG = json.loads(os.getenv('DEBUG'))
 ALLOWED_HOSTS = json.loads(os.getenv('ALLOWED_HOSTS'))
 # CORS (for production / cross-origin requests)
 CORS_ALLOWED_ORIGINS = json.loads(os.getenv('CORS_ALLOWED_ORIGINS', '["http://localhost:8000"]'))
+
+# Публичный префикс URL, напр. /extra/summary/. По умолчанию корень.
+URL_PREFIX = os.getenv('BASE_PATH', '/').strip('/').strip()
+
+# Behind reverse proxy (nginx)
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -124,7 +130,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-STATIC_URL = 'static/'
+STATIC_URL = f'/{URL_PREFIX}/static/' if URL_PREFIX else '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type

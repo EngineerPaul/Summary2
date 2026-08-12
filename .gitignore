@@ -7,3 +7,4 @@ db.sqlite3
 пет сайты.txt
 материалы/
 !/.env.example
+github_actions*

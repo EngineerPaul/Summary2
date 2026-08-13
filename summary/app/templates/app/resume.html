@@ -49,17 +49,17 @@
             <h2 class="block-heading">Проекты</h2>
             <div class="accordion">
                 <details class="project-item">
-                    <summary class="project-summary">Онлайн ежедневник и планировщик задач<span>(для себя) (последний)</span></summary>
+                    <summary class="project-summary">Онлайн ежедневник и планировщик задач<span>(для себя) (крупнейший)</span></summary>
                     <div class="project-content">
                         <h3 class="project-subheading">Сайт: <a href="https://daystream.ru/">DayStream.ru</a></h3>
                         <div class="carousel" data-carousel>
                             <div class="carousel-inner">
-                                <img src="{% static 'app/img/site-daystream/records.png' %}" alt="Сайт 1" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-daystream/notices.png' %}" alt="Сайт 1" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-daystream/notice-creation.png' %}" alt="Сайт 1" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-daystream/record.png' %}" alt="Сайт 1" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-daystream/tg.png' %}" alt="Сайт 1" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-daystream/schema.png' %}" alt="Сайт 1" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-daystream/records.png' %}" alt="Сайт ежедневник" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-daystream/notices.png' %}" alt="Сайт ежедневник" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-daystream/notice-creation.png' %}" alt="Сайт ежедневник" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-daystream/record.png' %}" alt="Сайт ежедневник" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-daystream/tg.png' %}" alt="Сайт ежедневник" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-daystream/schema.png' %}" alt="Сайт ежедневник" class="carousel-img img-zoom" data-zoom>
                             </div>
                             <button type="button" class="carousel-prev" aria-label="Назад">‹</button>
                             <button type="button" class="carousel-next" aria-label="Вперёд">›</button>
@@ -80,15 +80,38 @@
                         </p>
                     </div>
                 </details>
+
+                <details class="project-item">
+                    <summary class="project-summary">Сайт для хранения анализов<span>(для себя)</span></summary>
+                    <div class="project-content">
+                        <h3 class="project-subheading">Сайт: <a href="https://daystream.ru/extra/analyses/">daystream.ru/extra/analyses/</a></h3>
+                        <div class="carousel" data-carousel>
+                            <div class="carousel-inner">
+                                <img src="{% static 'app/img/site-analyses/analyses_main.png' %}" alt="Сайт анализов" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-analyses/analyses_add.png' %}" alt="Сайт анализов" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-analyses/analyses_graph_note.png' %}" alt="Сайт анализов" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-analyses/analyses_pdf.png' %}" alt="Сайт анализов" class="carousel-img img-zoom" data-zoom>
+                            </div>
+                            <button type="button" class="carousel-prev" aria-label="Назад">‹</button>
+                            <button type="button" class="carousel-next" aria-label="Вперёд">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                        <h3 class="project-subheading">Стек:</h3>
+                        <p class="project-stack">Python, FastAPI, SQL, HTML, CSS, JS, React</p>
+                        <h3 class="project-subheading">Описание проекта:</h3>
+                        <p class="project-desc">Сайт позволяет пользователю сохранять свои результаты анализов и отслеживания изменения показаний на графиках</p>
+                    </div>
+                </details>
+
                 <details class="project-item">
                     <summary class="project-summary">Сайт для маркетингового агентства<span>(заказ)</span></summary>
                     <div class="project-content">
                         <h3 class="project-subheading">Сайт: <a href="https://marketingpet.pythonanywhere.com/">marketingpet.com</a></h3>
                         <div class="carousel" data-carousel>
                             <div class="carousel-inner">
-                                <img src="{% static 'app/img/site-marketing/11.png' %}" alt="Сайт 2" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-marketing/2.png' %}" alt="Сайт 2" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-marketing/3.png' %}" alt="Сайт 2" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-marketing/11.png' %}" alt="Сайт маркетинг" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-marketing/2.png' %}" alt="Сайт маркетинг" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-marketing/3.png' %}" alt="Сайт маркетинг" class="carousel-img img-zoom" data-zoom>
                             </div>
                             <button type="button" class="carousel-prev" aria-label="Назад">‹</button>
                             <button type="button" class="carousel-next" aria-label="Вперёд">›</button>
@@ -100,15 +123,37 @@
                         <p class="project-desc">Работа на заказ от маркетингового агентства (копия сайта)</p>
                     </div>
                 </details>
+
+                <details class="project-item">
+                    <summary class="project-summary">Программа автоматического резервного копирования файлов<span>(для себя)</span></summary>
+                    <div class="project-content">
+                        <div class="carousel" data-carousel>
+                            <div class="carousel-inner">
+                                <img src="{% static 'app/img/site-archive/archeve_main.png' %}" alt="Программа резервирования" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-archive/archeve_main_3.png' %}" alt="Программа резервирования" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-archive/archive_add.png' %}" alt="Программа резервирования" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-archive/archive_settings.png' %}" alt="Программа резервирования" class="carousel-img img-zoom" data-zoom>
+                            </div>
+                            <button type="button" class="carousel-prev" aria-label="Назад">‹</button>
+                            <button type="button" class="carousel-next" aria-label="Вперёд">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                        <h3 class="project-subheading">Стек:</h3>
+                        <p class="project-stack">Python</p>
+                        <h3 class="project-subheading">Описание проекта:</h3>
+                        <p class="project-desc">Программа позволяет незаметно и автоматически создавать резервные копии файлов и папок на внешнем диске в назначенное время.</p>
+                    </div>
+                </details>
+
                 <details class="project-item">
                     <summary class="project-summary">Сайт электронной записи на занятия с репетитором<span>(для друга)</span></summary>
                     <div class="project-content">
                         <h3 class="project-subheading">Сайт: <a href="https://calendarpet.pythonanywhere.com/">calendarpet.com</a></h3>
                         <div class="carousel" data-carousel>
                             <div class="carousel-inner">
-                                <img src="{% static 'app/img/site-calendar/1.png' %}" alt="Сайт 3" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-calendar/2.png' %}" alt="Сайт 3" class="carousel-img img-zoom" data-zoom>
-                                <img src="{% static 'app/img/site-calendar/3.png' %}" alt="Сайт 3" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-calendar/1.png' %}" alt="Сайт уроков" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-calendar/2.png' %}" alt="Сайт уроков" class="carousel-img img-zoom" data-zoom>
+                                <img src="{% static 'app/img/site-calendar/3.png' %}" alt="Сайт уроков" class="carousel-img img-zoom" data-zoom>
                             </div>
                             <button type="button" class="carousel-prev" aria-label="Назад">‹</button>
                             <button type="button" class="carousel-next" aria-label="Вперёд">›</button>
@@ -120,6 +165,7 @@
                         <p class="project-desc">Ученики регистрируются и записываются на урок на свободное время (копия сайта)</p>
                     </div>
                 </details>
+
             </div>
         </section>
 
